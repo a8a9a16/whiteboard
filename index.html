@@ -31,7 +31,7 @@
                    
                     document.querySelector('#note').innerHTML = data;
                 }
-                tempString = $( "div.note" ).text();
+                tempString = document.getElementById("note").textContent;
                 for(var i =0;i<tempString.length;i++){
                     tempNumber++;
                 }
