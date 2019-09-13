@@ -22,20 +22,22 @@
         //step 5 for acturally coding...
         window.addEventListener("DOMContentLoaded", (event) => {
             var tempString;
-            var tempNumber=1;
+            var tempNumber = 1;
             fs.readFile("/note", 'utf8', function (err, data) {
                 if (err) {
                     document.querySelector('#note').innerHTML = "Just type, it will save automatically"
                 }
                 if (data) {
-                   
+
                     document.querySelector('#note').innerHTML = data;
                 }
                 tempString = document.getElementById("note").textContent;
-                for(var i =0;i<tempString.length;i++){
-                    tempNumber++;
+                for (var i = 0; i < tempString.length; i++) {
+                    if (tempString[i] == " ") {
+                        tempNumber++;
+                    }
                 }
-                document.querySelector('#counter').innerHTML = "words: "+tempNumber;
+                document.querySelector('#counter').innerHTML = "words: " + tempNumber;
             });
         });
     </script>
