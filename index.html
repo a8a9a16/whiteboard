@@ -21,20 +21,23 @@
         const fs = new Filer.FileSystem();
         //step 5 for acturally coding...
         window.addEventListener("DOMContentLoaded", (event) => {
-           
+
             fs.readFile("/note", 'utf8', function (err, data) {
                 if (err) {
                     document.querySelector('#note').innerHTML = "Just type, it will save automatically"
                 }
                 if (data) {
-
-
-                    document.querySelector('#counter').innerHTML = "words: " + tempNumber;
+                    document.querySelector('#note').innerHTML = data; 
                 }
 
             });
-            
+
         });
+        var intervalID = window.setInterval(myCallback, 3000);
+
+        function myCallback() {
+            fs.writeFile('/note', document.querySelector('#note').value);
+        }
     </script>
 </body>
 
