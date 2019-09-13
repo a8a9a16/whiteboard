@@ -1,35 +1,44 @@
 <!doctype html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet"> 
-        <meta charset="utf-8">
-        <title>My Web Page</title>
-    </head>
-    
-    <body>
-        <!-- This is a comment -->
-        <h1>Small note</h1>
-        <div id="note" contenteditable></div>
-        <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
-        <script>
-           
-            
-            const fs = new Filer.FileSystem();
-             //step 5 for acturally coding...
-            window.addEventListener("DOMContentLoaded", (event) => {
-               
-                fs.readFile("/note", 'utf8', function(err, data) {
-                    if(err) {
-                        document.querySelector('#note').innerHTML = "Welcome to my notepad!"
-                    }
-                    if(data) {
-                        document.querySelector('#note').innerHTML = data;
-                    }
-                });
+<head>
+    <meta charset="utf-8">
+    <title>My Web Page</title>
+    <link rel="stylesheet" type="text/css" href="trix.css">
+    <script type="text/javascript" src="trix.js"></script>
+</head>
+
+<body>
+    <!-- This is a comment -->
+    <h1>Small note</h1>
+    <p>press F5 to save your note</p>
+    <trix-editor id="note" contenteditable></trix-editor>
+    <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
+    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+    <script>
+        var tempString;
+        hotkeys('f5', function (event, handler) {
+            // Prevent the default refresh event under WINDOWS system
+            event.preventDefault();
+            document.querySelector('#note').innerHTML =tempString;
+        });
+
+        const fs = new Filer.FileSystem();
+        //step 5 for acturally coding...
+        window.addEventListener("DOMContentLoaded", (event) => {
+
+            fs.readFile("/note", 'utf8', function (err, data) {
+                if (err) {
+                    document.querySelector('#note').innerHTML = "Welcome to my notepad!"
+                }
+                if (data) {
+                    tempString = data;
+                }
             });
-           
+        });
 
-        </script>   
-    </body>
+
+    </script>
+</body>
+
 </html>
