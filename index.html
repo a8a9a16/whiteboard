@@ -30,8 +30,9 @@
                 }
                 if (data) {
                     var space=1;
-                    for(var i=0;i<document.querySelector('#note').innerHTML.length;i++){
-                        if(document.querySelector('#note').innerHTML[i]==" "){
+                    var tempString = document.querySelector('#note').innerHTML;
+                    for(var i=0;i<tempString.length;i++){
+                        if(tempString[i]==" "){
                             space++;
                         }
                     }
