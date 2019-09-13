@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <title>My Web Page</title>
+    <title>Small note</title>
 </head>
 
 <body>
     <!-- This is a comment -->
     <h1>Small note</h1>
     <div id="note" contenteditable></div>
+    <div id ="counter"></div>
     <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
     <script>
@@ -28,7 +29,14 @@
                     document.querySelector('#note').innerHTML = "Just type, it will save automatically"
                 }
                 if (data) {
+                    var space=1;
+                    for(var i=0;i<data.length;i++){
+                        if(data[i]==" "){
+                            space++;
+                        }
+                    }
                     document.querySelector('#note').innerHTML = data;
+                    document.querySelector('#counter').innerHTML = space;
                 }
             });
         });
