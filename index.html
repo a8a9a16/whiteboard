@@ -31,12 +31,12 @@
                 if (data) {
                     var space=1;
                     for(var i=0;i<document.querySelector('#note').innerHTML.length;i++){
-                        if(data[i]==" "){
+                        if(document.querySelector('#note').innerHTML[i]==" "){
                             space++;
                         }
                     }
                     document.querySelector('#note').innerHTML = data;
-                    document.querySelector('#counter').innerHTML = "words"+space;
+                    document.querySelector('#counter').innerHTML = "words: "+space;
                 }
             });
         });
