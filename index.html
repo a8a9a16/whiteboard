@@ -24,16 +24,16 @@
 
             fs.readFile("/note", 'utf8', function (err, data) {
                 if (err) {
-                    document.querySelector('#note').value = "Just type, it will save automatically"
+                    document.querySelector('#note').innerHTML = "Just type, it will save automatically"
                 }
                 if (data) {
-                    document.querySelector('#note').value = data; 
+                    document.querySelector('#note').innerHTML = data; 
                 }
 
             });
-
+            var intervalID = window.setInterval(myCallback, 3000);
         });
-        var intervalID = window.setInterval(myCallback, 3000);
+       
 
         function myCallback() {
             fs.writeFile('/note', document.querySelector('#note').value);
