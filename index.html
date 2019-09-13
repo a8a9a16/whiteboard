@@ -14,12 +14,15 @@
     <!-- This is a comment -->
     <h1>Small note</h1>
     <div id="note" contenteditable></div>
+    <div id="counter"></div>
     <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
     <script>
         const fs = new Filer.FileSystem();
         //step 5 for acturally coding...
         window.addEventListener("DOMContentLoaded", (event) => {
+            var tempString;
+            var tempNumber=1;
             fs.readFile("/note", 'utf8', function (err, data) {
                 if (err) {
                     document.querySelector('#note').innerHTML = "Just type, it will save automatically"
@@ -28,6 +31,11 @@
                    
                     document.querySelector('#note').innerHTML = data;
                 }
+                tempString = $( "div.note" ).text();
+                for(var i =0;i<tempString.length;i++){
+                    tempNumber++;
+                }
+                document.querySelector('#counter').innerHTML = "words: "+tempNumber;
             });
         });
     </script>
