@@ -31,9 +31,9 @@
                 }
 
             });
-            var intervalID = window.setInterval(myCallback, 3000);
         });
-       
+        window.setInterval(myCallback, 3000);
+
 
         function myCallback() {
             fs.writeFile('/note', document.querySelector('#note').innerHTML);
