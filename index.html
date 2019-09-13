@@ -1,38 +1,40 @@
 <!doctype html>
 <html>
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
-        
-        <title>My Web Page</title>
-    </head>
-    
-    <body>
-        <!-- This is a comment -->
-        <h1>Small note</h1>
-        <div id="note" contenteditable></div>
-        <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
-        <script>
-           
-            
-            const fs = new Filer.FileSystem();
-             //step 5 for acturally coding...
-            window.addEventListener("DOMContentLoaded", (event) => {
-               
-                fs.readFile("/note", 'utf8', function(err, data) {
-                    if(err) {
-                        document.querySelector('#note').innerHTML = "Welcome to my notepad!"
-                    }
-                    if(data) {
-                        document.querySelector('#note').innerHTML = data;
-                    }
-                });
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <title>My Web Page</title>
+</head>
+
+<body>
+    <!-- This is a comment -->
+    <h1>Small note</h1>
+    <div id="note" contenteditable></div>
+    <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
+
+    <script>
+
+
+        const fs = new Filer.FileSystem();
+        //step 5 for acturally coding...
+        window.addEventListener("DOMContentLoaded", (event) => {
+
+            fs.readFile("/note", 'utf8', function (err, data) {
+                if (err) {
+                    document.querySelector('#note').innerHTML = "Just type, it will save automatically"
+                }
+                if (data) {
+                    document.querySelector('#note').innerHTML = data;
+                }
             });
-           
+        });
 
-        </script>   
-    </body>
+
+    </script>
+</body>
+
 </html>
