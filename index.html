@@ -4,17 +4,31 @@
         <meta charset="utf-8">
         <title>My Web Page</title>
     </head>
-    <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
-
-    <script>
-        const fs = new Filer.FileSystem();
-        //step 5 for acturally coding...
-
-
-
-    </script>
+    
     <body>
         <!-- This is a comment -->
         <h1>Hello World!</h1>
+        <div id="note" contenteditable="true"></div>
+        <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
+
+        <script>
+            var content;
+            
+        const fs = new Filer.FileSystem();
+        //step 5 for acturally coding...
+        window.addEventListener("DOMContentLoaded", (event) => {
+                console.log("DOM fully loaded and parsed");
+                fs.readFile("/note", 'utf8', function(err, data) {
+                    if(err) {
+                        content = "Welcome to my notepad!"
+                    }
+                    if(data) {
+                        content = data;
+                    }
+                });
+            });
+            document.querySelector('#note').innerHTML = content;    
+
+        </script>   
     </body>
 </html>
