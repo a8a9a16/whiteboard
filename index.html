@@ -16,9 +16,9 @@
             
             const fs = new Filer.FileSystem();
              //step 5 for acturally coding...
-            /*window.addEventListener("DOMContentLoaded", (event) => {
+            window.addEventListener("DOMContentLoaded", (event) => {
                 console.log("DOM fully loaded and parsed");
-                fs.readFile("/note", 'utf8', function(err, data) {
+                fs.readFile("/note", 'utf8', function(err, data) =>{
                     if(err) {
                         content = "Welcome to my notepad!"
                     }
@@ -27,12 +27,12 @@
                     }
                 });
             });
-            document.querySelector('#note').innerHTML = content;    */
-            window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('#note').innerHTML = content;    
+            /*window.addEventListener('DOMContentLoaded', (event) => {
              fs.readFile('/note', 'utf8', (err, data) => {
            document.querySelector('#note').innerHTML = err ? 'Type here' : data;
              });
-           });
+           });*/
 
         </script>   
     </body>
