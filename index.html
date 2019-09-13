@@ -29,17 +29,18 @@
                 }
                 if (data) {
 
-                    document.querySelector('#note').innerHTML = data;
-                    tempString = document.getElementById("note").textContent;
-                    for (var i = 0; i < tempString.length; i++) {
-                        if (tempString[i] == " ") {
-                            tempNumber++;
-                        }
-                    }
+
                     document.querySelector('#counter').innerHTML = "words: " + tempNumber;
                 }
 
             });
+            document.querySelector('#note').innerHTML = data;
+            tempString = document.getElementById("note").textContent;
+            for (var i = 0; i < tempString.length; i++) {
+                if (tempString[i] == " ") {
+                    tempNumber++;
+                }
+            }
         });
     </script>
 </body>
