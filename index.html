@@ -14,35 +14,22 @@
     <!-- This is a comment -->
     <h1>Small note</h1>
     <div id="note" contenteditable></div>
-    <div id ="counter"></div>
     <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
     <script>
-
-
         const fs = new Filer.FileSystem();
         //step 5 for acturally coding...
         window.addEventListener("DOMContentLoaded", (event) => {
-
             fs.readFile("/note", 'utf8', function (err, data) {
                 if (err) {
                     document.querySelector('#note').innerHTML = "Just type, it will save automatically"
                 }
                 if (data) {
-                    var space=1;
-                    var tempString = document.querySelector('#note');
-                    for(var i=0;i<tempString.length;i++){
-                        if(tempString[i]==" "){
-                            space++;
-                        }
-                    }
+                   
                     document.querySelector('#note').innerHTML = data;
-                    document.querySelector('#counter').innerHTML = "words: "+space;
                 }
             });
         });
-
-
     </script>
 </body>
 
