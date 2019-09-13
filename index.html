@@ -12,22 +12,22 @@
         <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
         <script>
-            var content;
+           
             
             const fs = new Filer.FileSystem();
              //step 5 for acturally coding...
             window.addEventListener("DOMContentLoaded", (event) => {
                 console.log("DOM fully loaded and parsed");
-                fs.readFile("/note", 'utf8', function(err, data) =>{
+                fs.readFile("/note", 'utf8', function(err, data) {
                     if(err) {
-                        content = "Welcome to my notepad!"
+                        document.querySelector('#note').innerHTML == "Welcome to my notepad!"
                     }
                     if(data) {
-                        content = data;
+                        document.querySelector('#note').innerHTML == data;
                     }
                 });
             });
-            document.querySelector('#note').innerHTML = content;    
+            
             /*window.addEventListener('DOMContentLoaded', (event) => {
              fs.readFile('/note', 'utf8', (err, data) => {
            document.querySelector('#note').innerHTML = err ? 'Type here' : data;
