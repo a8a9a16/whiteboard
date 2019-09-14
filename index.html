@@ -13,8 +13,7 @@
 <body>
     <!-- This is a comment -->
     <h1>Small note</h1>
-    <div id="note" contenteditable></div>
-    <div id="counter"></div>
+    <textarea id="note" contenteditable></textarea>
     <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
 
     <script>
@@ -29,7 +28,6 @@
                 if (data) {
                     document.querySelector('#note').innerHTML = data; 
                 }
-
             });
         });
         window.setInterval(myCallback, 3000);
