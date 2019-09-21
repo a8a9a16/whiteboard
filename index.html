@@ -34,7 +34,10 @@
 
 
         function myCallback() {
-            fs.writeFile('/note', document.querySelector('#note').innerHTML);
+            fs.writeFile('/note', document.querySelector('#note').innerHTML, function (err){
+                if(err)
+               console.error('Saving error', err);
+            });
         }
     </script>
 </body>
