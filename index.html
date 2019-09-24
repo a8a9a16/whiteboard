@@ -55,7 +55,6 @@
 
 
         function myCallback() {
-            console.log(document.querySelector('#note').innerHTML);
             fs.writeFile('/note', document.querySelector('#note').innerHTML);
         }
     </script>
